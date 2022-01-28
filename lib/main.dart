@@ -8,15 +8,11 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:device_preview/device_preview.dart';
 
 void main() => runApp(
-  DevicePreview(
-      enabled: !kReleaseMode,
-   
-    
-    builder: (context) =>   MyApp(),
-  ),
-
- 
-);
+      DevicePreview(
+        enabled: !kReleaseMode,
+        builder: (context) => MyApp(),
+      ),
+    );
 
 class MyApp extends StatefulWidget {
   @override
@@ -27,16 +23,15 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-       useInheritedMediaQuery: true,
-    locale: DevicePreview.locale(context),
-    builder: DevicePreview.appBuilder,
-    
-    theme: ThemeData.light(),
-    routes: {
-      "/signup_page": (context) => SignupPage()
-    },
-   
-      home: Splash());
+        useInheritedMediaQuery: true,
+        locale: DevicePreview.locale(context),
+        builder: DevicePreview.appBuilder,
+        theme: ThemeData.light(),
+        routes: {
+          "/signup_page": (context) => SignupPage(),
+          "/main": (context) => MyApp(),
+        },
+        home: MyHomePage());
   }
 }
 
@@ -46,8 +41,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String wel = "ssss";
-  String well = "eqviqv";
   var valueChoose;
 
   List listItem = [
@@ -67,8 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
-      resizeToAvoidBottomInset: false,
+        resizeToAvoidBottomInset: false,
         backgroundColor: Colors.black,
         body: SingleChildScrollView(
           child: SafeArea(
@@ -116,30 +108,31 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                     Container(
-                      color: Colors.grey,
+                      color: Colors.grey[850],
                       margin: EdgeInsets.all(16),
                       child: TextField(
                         decoration: InputDecoration(
-                          hintText: "Phone number, email address or username"
-                        ),
+                            hintText: "Phone number, email address or username",
+                            hintStyle: TextStyle(color: Colors.grey)),
                       ),
                     ),
-                     Container(
-                      color: Colors.grey,
+                    Container(
+                      color: Colors.grey[850],
                       margin: EdgeInsets.all(16),
                       child: TextField(
                         decoration: InputDecoration(
-                          hintText: "Password"
-                        ),
+                            hintText: "Password",
+                            hintStyle: TextStyle(color: Colors.grey)),
                       ),
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         Container(
-                          padding: EdgeInsets.symmetric(vertical: 0, horizontal: 30),
+                          padding:
+                              EdgeInsets.symmetric(vertical: 0, horizontal: 30),
                           color: Colors.blue,
-                           margin: EdgeInsets.all(16),
+                          margin: EdgeInsets.all(16),
                           child: ElevatedButton(
                             onPressed: () {},
                             child: Text("Login"),
@@ -149,75 +142,86 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                       children: [
+                      children: [
                         Container(
-                          child: Text("Forgotten your login details?", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey),), 
-                          
+                          child: Text(
+                            "Forgotten your login details?",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.grey),
+                          ),
                         ),
                         RaisedButton(
-                          onPressed: () {
-                            print("Elevatedbutton");
-                          },
-                          color: Colors.black87,
-                          child: Text("Get help logging in", style: TextStyle(fontStyle: FontStyle.italic, color: Colors.white),)
-                        ),
-          
-                       ], ),
-                       
-                     Row(
-              children: <Widget>[
-                  Expanded(
-              child: Divider(color: Colors.grey,)
-                  ),       
-          
-                  Text("OR", style: TextStyle(color: Colors.white),),        
-          
-                  Expanded(
-              child: Divider(color: Colors.white)
-                  ),
-              ]
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-                  Icon(FontAwesomeIcons.facebook,
-              
-              size: 30,
-              
-              color: Colors.blue,
-              
-              
-              
-              ),
-              Text("Log in With Facebook", style: TextStyle(color: Colors.blue),)
-            ],
-          ),
-          SizedBox(height:170,),
-          Divider(
-            color: Colors.grey,
-          ),
-           SingleChildScrollView(
-             child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                         children: [
-                          Container(
-                            child: Text("Don't have an account?", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey),), 
-                            
-                          ),
-                          RaisedButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, "/signup_page");
                               print("Elevatedbutton");
                             },
                             color: Colors.black87,
-                            child: Text("Sign up", style: TextStyle(fontStyle: FontStyle.italic, color: Colors.white),)
+                            child: Text(
+                              "Get help logging in",
+                              style: TextStyle(
+                                  fontStyle: FontStyle.italic,
+                                  color: Colors.white),
+                            )),
+                      ],
+                    ),
+                    Row(children: <Widget>[
+                      Expanded(
+                          child: Divider(
+                        color: Colors.grey,
+                      )),
+                      Text(
+                        "OR",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      Expanded(child: Divider(color: Colors.white)),
+                    ]),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          FontAwesomeIcons.facebook,
+                          size: 30,
+                          color: Colors.blue,
+                        ),
+                        Text(
+                          "Log in With Facebook",
+                          style: TextStyle(color: Colors.blue),
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 170,
+                    ),
+                    Divider(
+                      color: Colors.grey,
+                    ),
+                    SingleChildScrollView(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            child: Text(
+                              "Don't have an account?",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.grey),
+                            ),
                           ),
-           
-                         ], ),
-           ),
-          
-                      
-                    
+                          RaisedButton(
+                              onPressed: () {
+                                Navigator.pushNamed(context, "/signup_page");
+                                print("Elevatedbutton");
+                              },
+                              color: Colors.black87,
+                              child: Text(
+                                "Sign up",
+                                style: TextStyle(
+                                    fontStyle: FontStyle.italic,
+                                    color: Colors.white),
+                              )),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ],
