@@ -1,6 +1,7 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:my_application/login_help.dart';
 import 'package:my_application/signup_page.dart';
 import 'package:my_application/splash.dart';
 import 'package:page_transition/page_transition.dart';
@@ -30,6 +31,7 @@ class _MyAppState extends State<MyApp> {
         routes: {
           "/signup_page": (context) => SignupPage(),
           "/main": (context) => MyApp(),
+          "/login_help": (context) => LoginHelp(),
         },
         home: MyHomePage());
   }
@@ -153,6 +155,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         RaisedButton(
                             onPressed: () {
+                              Navigator.pushNamed(context, "/login_help");
                               print("Elevatedbutton");
                             },
                             color: Colors.black87,

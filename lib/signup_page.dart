@@ -89,15 +89,19 @@ class _SignupPageState extends State<SignupPage> {
                                               fontWeight: FontWeight.bold),
                                         ),
                                       ),
-                                      Container(
-                                        padding: EdgeInsets.symmetric(
-                                            vertical: 0, horizontal: 140),
-                                        color: Colors.blue,
-                                        margin: EdgeInsets.all(16),
-                                        child: ElevatedButton(
-                                          onPressed: () {},
-                                          child: Text("Next"),
-                                        ),
+                                      Column(
+                                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                                        children: [
+                                          Container(
+                                           
+                                            color: Colors.blue,
+                                            margin: EdgeInsets.all(16),
+                                            child: ElevatedButton(
+                                              onPressed: () {},
+                                              child: Text("Next"),
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                       SizedBox(
                                         height: 170,
