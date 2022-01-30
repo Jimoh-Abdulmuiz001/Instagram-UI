@@ -67,7 +67,7 @@ class _LoginHelpState extends State<LoginHelp> {
                   margin: EdgeInsets.all(16),
                   child: TextField(
                     decoration: InputDecoration(
-                        hintText: "Username, email address or Phone numb",
+                        hintText: "Username, email address or Phone number",
                         hintStyle: TextStyle(color: Colors.grey)),
                   ),
                 ),
